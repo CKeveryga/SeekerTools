@@ -1,10 +1,6 @@
 # Seeker Tools
 ## About
 Inventor tools class library
-
-
-# Class Creator
-## About
 ### Reference Libraries
 ```ruby
 using System;
