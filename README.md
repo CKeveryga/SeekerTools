@@ -1,6 +1,12 @@
 # Seeker Tools
 ## About
-Inventor tools class library
+Service library for working with Autodesk Inventor. 
+
+Export to PDF, DWG, DXF, DWF and STEP files using the translator addins. 
+
+Loop through all occurrences of an assembly and map them to an inventor context class.
+
+Revision control for exported files. Centralized location for export will be set during configuration. Will need to create data access class for whichever DB will be used and implement IDataAccess.
 ### Reference Libraries
 ```ruby
 using System;
