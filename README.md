@@ -7,7 +7,7 @@ Export to PDF, DWG, DXF, DWF and STEP files using the translator addins.
 Loop through all occurrences of an assembly and map them to an inventor context class.
 
 Revision control for exported files. Centralized location for export will be set during configuration. Will need to create data access class for whichever DB will be used and implement IDataAccess.
-### Reference Libraries
+## Reference Libraries
 ```ruby
 using System;
 using Inventor;
@@ -17,11 +17,11 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using static SeekerTools.SeekerServices;
 ```
-### Start Inventor in the Background with Optimal Performance Settings
+## Start Inventor in the Background with Optimal Performance Settings
 ```ruby
 var invApp = SeekerServices.BackgroundInventor();
 ```
-### Open Assembly Document and Map
+## Open Assembly Document and Map
 ```ruby
 var doc = invApp.Documents.Open(@"C:\Temp\AssemblyOne.iam");
 
@@ -34,7 +34,7 @@ var asm = SeekerModels.MapAssemblyDocument(aDoc);
 
 Console.WriteLine("PN: {0}\nDescription: {1}\nVendor: {2}", asm.PartNumber, asm.Description, asm.Vendor);
 ```
-### Open Part and Get Drawing
+## Open Part and Get Drawing
 ```ruby
 var partDoc = (PartDocument)invApp.Documents.Open(@"C:\Temp\PartOne.ipt");
 
@@ -48,7 +48,7 @@ string idw = invApp.DesignProjectManager.ResolveFile(projectPath, mappedPart.Par
 
 var drawDoc = (DrawingDocument)invApp.Documents.Open(idw);
 ```
-### Create Exporter and Export to Original Location
+## Create Exporter and Export to Original Location
 ```ruby
 var exporter = SeekerServices.CreateExporter(invApp, logger, @"C:\Temp\Config.ini");
 
@@ -59,7 +59,7 @@ exporter.DWG.Export(drawDoc);
 exporter.DWF.Export(partDoc);
 exporter.STEP.Export(partDoc);
 ```
-### Create Classes to Work With Seeker
+## Create Classes to Work With Seeker
 Implement IOccurrenceTreater for custom usage within assembly loop
 ```ruby
     internal class CustomTreat : IOccurrenceTreater
@@ -80,7 +80,7 @@ Implement IOccurrenceTreater for custom usage within assembly loop
         }
     }
 ```
-### Create Data Access Class to Retrieve Drawing Info
+## Create Data Access Class to Retrieve Drawing Info
 Implement IDataAccess
 Write method to connect to data base with drawing info.
 ```ruby
